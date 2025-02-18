@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild ./src/index.ts --bundle --platform=node --format=esm --outdir=dist/",
+    "build": "esbuild ./src/index.ts --bundle --platform=node --format=esm --packages=external --outdir=dist/",
     "start": "node dist/index.js",
     "dev": "tsx watch ./src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@types/ws": "^8.5.14",
     "typescript": "^5.7.3",
