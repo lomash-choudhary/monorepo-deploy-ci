@@ -2,7 +2,7 @@ import express, {type Request, type Response} from "express"
 import { client } from "@repo/db/client"
 
 const app = express();
-const port = 8080;
+const port = 3001;
 
 app.get("/", (req, res) => {
     res.status(200).json(
