@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "@repo/db": "workspace:*",
-    "@repo/typescript-config": "workspace:*"
+    "@repo/typescript-config": "workspace:*",
+    "esbuild": "^0.19.12"
   },
   "keywords": [],
   "author": "",
