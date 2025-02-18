@@ -2,15 +2,20 @@
   "name": "@repo/db",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "exports":{
-    "./client": "./src/index.ts"
+    "./client": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "esbuild ./src/index.ts --bundle --platform=node --format=esm --packages=external --outdir=dist/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*"
+    "@repo/typescript-config": "workspace:*",
+    "esbuild": "^0.19.12"
   },
   "dependencies": {
     "@prisma/client": "6.3.0",

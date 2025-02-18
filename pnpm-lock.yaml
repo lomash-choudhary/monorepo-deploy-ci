@@ -117,6 +117,9 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      esbuild:
+        specifier: ^0.19.12
+        version: 0.19.12
 
   packages/eslint-config:
     devDependencies:
