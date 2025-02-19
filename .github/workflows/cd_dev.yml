@@ -27,7 +27,7 @@ jobs:
                 npm install pnpm -g
                 cd packages/db
                 pnpm install
-                echo "${{ secrets.DB_SECRET }}" &> .env
+                echo "${{ secrets.DB_SECRET_DEV }}" &> .env
                 cd ../..
                 pnpm install
                 pnpm build
