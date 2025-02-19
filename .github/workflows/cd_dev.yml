@@ -22,6 +22,8 @@ jobs:
                 sudo chmod 600 ~/.ssh/ssh_key
                 ls -la ~/.ssh
                 ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh_key root@64.227.174.234
+                pwd
+                ls
                 cd monorepo-deploy-ci && git pull
                 pnpm install
                 pnpm run build
