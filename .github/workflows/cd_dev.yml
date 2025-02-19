@@ -1,0 +1,25 @@
+name: Deploy to Stagging Environment
+
+on:
+    push:
+        branches:
+            - "main"
+
+jobs:
+    re-deploy-change:
+        name: Redeploying the changed code onto the stagging envrionment
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: SSH into VM
+              run: |
+                ssh -i ${{ secrets.SSHKEY }} root@64.227.174.234
+                cd monorepo-deploy-ci && git pull
+                pnpm install
+                pnpm run build
+                pm2 restart http-server
+                pm2 restart next-app
+                pm2 restart ws-server-prod
