@@ -22,7 +22,7 @@ jobs:
                 sudo chmod 700 ~/.ssh
                 sudo chmod 600 ~/.ssh/ssh_key_prod
                 ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh_key_prod root@159.89.84.52 -t "
-                cd monorepo-deploy-ci 
+                cd monorepo-deploy-ci && git pull
                 sudo npm install pnpm -g
                 pnpm install
                 cd packages/db
