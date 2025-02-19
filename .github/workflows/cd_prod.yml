@@ -23,4 +23,5 @@ jobs:
                 sudo chmod 600 ~/.ssh/ssh_key_prod
                 ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh_key_prod root@159.89.84.52 -t "
                 ls
+                pwd
                 "
