@@ -21,7 +21,7 @@ jobs:
                 sudo chmod 700 ~/.ssh
                 sudo chmod 600 ~/.ssh/ssh_key
                 ls -la ~/.ssh
-                ssh -o StrictHostKeyVerification=no -i ~/.ssh/ssh_key root@64.227.174.234
+                ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh_key root@64.227.174.234
                 pwd
                 ls
                 git pull
