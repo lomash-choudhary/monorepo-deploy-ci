@@ -16,7 +16,8 @@ jobs:
 
             - name: SSH into VM
               run: |
-                ssh -i ${{ secrets.SSHKEY }} root@64.227.174.234
+                echo ${{ secrets.SSHKEY }} &> ~/.ssh/ssh_key
+                ssh -i ~/.ssh/ssh_key root@64.227.174.234
                 cd monorepo-deploy-ci && git pull
                 pnpm install
                 pnpm run build
