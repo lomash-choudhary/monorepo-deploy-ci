@@ -23,12 +23,13 @@ jobs:
                 ls -la ~/.ssh
                 ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh_key root@64.227.174.234 -t "pwd
                 ls 
-                cd monorepo-deploy-ci 
+                cd monorepo-deploy-ci && git pull origin main
                 npm install pnpm -g
                 cd packages/db
                 pnpm install
                 echo "${{ secrets.DB_SECRET }}" &> .env
                 cd ../..
                 pnpm install
-                pnpm build"
+                pnpm build
+                pm2 restart all"
                 
