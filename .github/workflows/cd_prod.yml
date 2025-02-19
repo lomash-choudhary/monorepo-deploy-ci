@@ -2,8 +2,8 @@ name: Deploy to prod environment
 
 on:
     push:
-        branches:
-            - "production"
+        branches: 
+            - "prod" 
 
 
 jobs:
@@ -22,6 +22,12 @@ jobs:
                 sudo chmod 700 ~/.ssh
                 sudo chmod 600 ~/.ssh/ssh_key_prod
                 ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh_key_prod root@159.89.84.52 -t "
-                ls
-                pwd
-                "
+                cd monorepo-deploy-ci && git pull
+                sudo npm install pnpm -g
+                pnpm install
+                cd packages/db
+                pnpm install
+                echo "${{ secrets.DB_SECRET_PROD }}" &> .env
+                cd ../..
+                pnpm install
+                pm2 restart all"
