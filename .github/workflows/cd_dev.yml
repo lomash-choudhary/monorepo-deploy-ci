@@ -24,7 +24,8 @@ jobs:
                 ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh_key root@64.227.174.234
                 pwd
                 ls
-                cd monorepo-deploy-ci && git pull
+                git pull
+                npm install pnpm -g
                 pnpm install
                 pnpm run build
                 pm2 restart http-server
