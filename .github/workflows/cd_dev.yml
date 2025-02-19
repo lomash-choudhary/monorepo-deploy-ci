@@ -21,13 +21,6 @@ jobs:
                 sudo chmod 700 ~/.ssh
                 sudo chmod 600 ~/.ssh/ssh_key
                 ls -la ~/.ssh
-                ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh_key root@64.227.174.234
-                pwd
-                ls
-                git pull
-                npm install pnpm -g
-                pnpm install
-                pnpm run build
-                pm2 restart http-server
-                pm2 restart next-app
-                pm2 restart ws-server-prod
+                ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh_key root@64.227.174.234 -t "pwd
+                ls"
+                
