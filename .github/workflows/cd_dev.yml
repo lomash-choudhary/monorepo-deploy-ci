@@ -18,12 +18,10 @@ jobs:
               run: |
                 mkdir -p ~/.ssh
                 echo "${{ secrets.SSHKEY }}" &> ~/.ssh/ssh_key
-                touch ~/.ssh/know_hosts
-                echo "${{ secrets.KNOWN_HOSTS }}" &> ~/.ssh/know_hosts
                 sudo chmod 700 ~/.ssh
                 sudo chmod 600 ~/.ssh/ssh_key
                 ls -la ~/.ssh
-                ssh -i ~/.ssh/ssh_key root@64.227.174.234
+                ssh -o StrictHostKeyVerification=no -i ~/.ssh/ssh_key root@64.227.174.234
                 pwd
                 ls
                 git pull
