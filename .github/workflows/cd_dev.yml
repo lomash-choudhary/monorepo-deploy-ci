@@ -17,6 +17,7 @@ jobs:
             - name: SSH into VM
               run: |
                 echo ${{ secrets.SSHKEY }} &> ~/.ssh/ssh_key
+                sudo chmod 600 ~/.ssh/ssh_key
                 ls
                 cat ~/.ssh/ssh_key
                 ssh -i ~/.ssh/ssh_key root@64.227.174.234
